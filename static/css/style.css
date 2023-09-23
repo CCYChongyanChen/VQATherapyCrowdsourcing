@@ -1,0 +1,236 @@
+
+h4.title{
+    color:#382008;
+    font-weight:bold;
+    display: inline-block；
+}
+h2.title{
+    color:black;
+    font-weight:bold;
+    text-align: center;
+}
+p{
+    font-size: 15px;
+}
+
+
+details {
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    padding: .5em .5em 0;
+}
+
+summary {
+
+    margin: -.5em -.5em 0;
+    padding: .5em;
+    width: 300px;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    color:#007bff;
+    font-size:15px;
+    /* display:inline-block； */display: list-item;
+}
+
+details[open] {
+    padding: .5em;
+} 
+
+
+
+details[open]> summary {
+    border-bottom: 1px solid #aaa;
+    margin-bottom: .5em;
+    margin: -.5em -.5em 0;
+    padding: .5em;
+    width: 300px;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    color:#007bff;
+    font-size:15px;
+    /* display:inline-block； */display: list-item;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.btn {
+    border: none;
+    outline: none;
+    padding: 10px 16px;
+    background-color: #FDD692;
+    cursor: pointer;
+    font-size: 18px;
+  }
+
+
+.btnNextAnswer{
+    padding: 1px 6px !important;
+}
+.btnNext,.btnPrevious,.btnsubmit,.btnNextGroup{
+    float:right;
+    margin-top:5px;
+    margin-right: 5px;
+
+}
+
+body {font-size: 18px;}
+.btn:hover {
+    background-color: #EC7357;
+    color: white;
+}
+/* .btnsCenterContainer{
+    display:flex;
+    margin: 0 auto;
+    width: 50%;
+    
+} */
+.btn-secondary{
+    margin-top:10px;
+    /* margin:0 auto;
+    display:block; */
+    
+    /* flex:1;   */
+    margin-left:20px;  
+    
+}
+div.border-around{
+    border: 2px solid rgb(168, 168, 168);
+    border-radius: 3px;
+    padding-top: 5px;
+    padding-bottom: 15px;
+}
+
+/* #TAB1,#TAB2,#TAB3,#TAB4,#TAB5{ 
+    background-color: #fffcf0;
+} */
+
+.viewer{
+        margin: 0 auto;
+        /* height: 700px; */
+        width: 100%;
+        border: 1px solid rgb(168, 168, 168);
+        /* background:rgb(253, 251, 253); */
+}
+.text-secondary {
+
+    margin-left:20px;
+    color:#754F44;
+}
+
+.noHover{
+    cursor: not-allowed;
+    background-color: lightgrey;
+}
+
+.noHover:hover{
+    background:lightgrey;
+    color:black
+}
+div.noHover{
+    color: grey;
+    background-color: rgba(150, 150, 150, 0.2);
+}
+div.noHover:hover{
+    color: grey;
+    background-color: rgba(150, 150, 150, 0.2);
+}
+a.glyphicon:hover{
+    color:blue;
+    cursor: pointer;
+    background-color:white;
+}
+.nav>li>a:hover{
+    background-color: #FDD692;
+}
+/* .nav>li:active>a{
+    
+    color:green;
+    background-color: yellow;
+} */
+
+ul.controlImg>li>a.noHover{
+    pointer-events: none;
+}
+
+
+/* Disable Tab starts*/
+.disabled{
+    /* background-color: rgba(150, 150, 150, 0.2); */
+    color:grey;
+    pointer-events: none;
+  
+}
+input[type="text"][disabled] {
+    color: grey;
+    /* background-color: rgba(150, 150, 150, 0.2); */
+ }
+.disabled:hover{
+    background-color: white;
+    color:grey;
+    
+    
+}
+/* Disable Tab ends*/
+
+.examples{
+
+    color: black;
+    background-color: lightyellow;
+}
+
+
+
+/* CANVAS */
+#canvaswrapper{
+    /* position:relative; */
+    margin-left: 20px;
+    width:500px; 
+    height:500px;
+}
+img.coveredImage{
+    position: absolute; 
+    left: 0; 
+    top: 0;
+    z-index: 0;
+    user-select: none;
+}
+/* canvas.myCanvas{
+    position: absolute; left: 0; top: 0; z-index: 1; } */
+.green{
+    color:#008000;
+}
+.red{
+    color:red;
+}
+/* .thumbnail{
+    background-color:white;
+} */
