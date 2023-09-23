@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta http-equiv="Expires" content="0">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Cache-control" content="no-cache">
+        <meta http-equiv="Cache" content="no-cache">
+        <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+        <title>VizWiz-Visual Grounding</title>
+    
+        <link rel="stylesheet" href="static/css/font-awesome-4.7.0/css/font-awesome.min.css">  
+        <!-- <link rel="stylesheet" href="static/css/bootstrap.min.css">   -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">  
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+        <link rel="stylesheet" href="static/css/style.css">
+        
+        <!-- jQuery library -->
+        <script src="static/js/jquery.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="static/js/bootstrap.min.js"></script>    
+    
+    
+        <script type='text/javascript' src='static/js/externalHIT_v1.js'></script>
+        
+        {% block head %}
+        {% endblock head %}
+
+    </head>
+
+<body>
+
+<div class="container">
+    <!---------- header area ------------>
+    <div class="row">
+            <div class="col-lg-12">
+                <!--h4 style="text-align: center"><?=$title?></h4-->
+                <br/>
+                <!-- Button open collapse -->
+                <button type="button" id="showDtl"
+                        data-toggle="collapse" data-target="#dtlPane"
+                        class="btn btn-default btn-sm center-block" >
+                    Hide / Show Instructions
+                </button>
+
+                <!-- task details -->
+                <div class="collapse in" id="dtlPane">
+                    <div class="alert alert-warning motivation">
+
+                            {% block IMPORTANT%}
+                            {% endblock IMPORTANT %}
+
+
+                            <h4 class="title">MOTIVATION</h4> 
+                            <p>
+                            Our goal is to help blind people learn about their surroundings. <br> 
+                            
+                            We aim to build an intelligent system that can automatically locate regions in images that are of interest to blind photographers.    
+                        </p>
+                            <br>
+                            <h4 class="title">TASK</h4>
+                                <p> 
+                                    In this task, you will see images paired with questions that were collected from internet and the answers are provided by multiple people.
+                                    For each image-question pair, we collected answers from multiple people and so sometimes ended up with multiple different answers. <br><br>
+                        
+                                    We will present to you three image-question pairs. For each image-question pair, we will ask you to review multiple answers and complete the following 
+                                    three steps for each answer. <br>(1) Step 1: Is the answer correct?<br> (2) Step 2: How many polygons are needed to locate the region that the answer is referring to?
+                                    <br>(3) Step 3:  Draw one polygon to locate the region that the answer is referring to by clicking on the image.
+
+                                    <br>Once you have completed  the <strong>answer</strong> for an image-question pair, you will be allowed to proceed to the next answer. 
+                                    <!-- You cannot go to the next answer for the image-question pair until you finish the current answer.<br> -->
+                                    To go to the next answer, click the angle brackets ">" at the left bottom of the page. <br><br>
+                                    Once you have completed the three steps for <strong>all answers</strong> for an image-question pair, you will be allowed to proceed to next image-question pair from the three image-question pairs. <br>
+                                    To go to the next image-question pair, click the button "next image" at the right bottom of the page. <br><br>
+
+                                    Once you have completed for <strong>all image-question pairs</strong>, you will be allowed to submit the HIT. <br>
+                                </p>
+                                <br><p><strong>Step 1: Is the answer correct? </p></strong> 
+                                                                    <details  id = "details2">
+                                                                            <summary id = "summary2"><strong>See details and examples </strong></summary>
+                                                                         
+                                                                               
+                                                                            {% include 'Steps/Examples/Step2Example.html'%}
+                                
+                                                                        </details>
+
+                                <br><p>If your answer is "Yes" to step 1, please go to step 2. Otherwise, click the angle brackets ">" at the left bottom of the page.</p>
+                                
+                                <br><p><strong>Step 2: How many polygons are needed to locate the region that the answer is referring to? </p></strong>
+
+
+                                    <div style="text-indent:2em;">
+                                        <p><strong>Zero </strong>: No polygon  is needed. This is the situation when the <strong>answer cannot be located </strong> in the image.</p>
+                                        </div>
+                                            <div style="padding-left:4em;">
+                                                    <details  id = "details3">
+                                                            <summary  id = "summary3"><strong>See details and examples </strong></summary>
+                                                                {% include 'Steps/Examples/Step3ExampleNoDraw.html'%}
+                                                        </details>
+                                            </div>
+                                        <br>    
+
+
+
+
+
+
+
+                                        <div style="text-indent:2em;">
+                                        <p><strong>One</strong>: Just one polygon is needed. This is the situation when the answer is referring to a <strong>single region</strong> or multiple <strong>connected </strong>regions. 
+</p>
+                                        </div>
+                                            <div style="padding-left:4em;">
+                                                <details  id = "details4">
+                                                    <summary id = "summary4"><strong>See details and examples </strong></summary>
+                                                    {% include 'Steps/Examples/Step3ExampleOne.html'%}
+                                                </details>
+                                            </div>
+                                        <br>    
+
+
+
+
+
+
+
+                                        <div style="text-indent:2em;">
+
+                                        <p><strong>More than one</strong>: Multiple polygons are needed.
+                                            This is the situation when the answer is referring to <strong>multiple disconnected regions</strong>.
+                                            </p>
+                                     </div>
+                                            <div style="padding-left:4em;">
+                                                <details  id = "details5">
+                                                    <summary id = "summary5"><strong>See details and examples </strong></summary>
+                                                
+                                                    
+                                                    {% include 'Steps/Examples/Step3ExampleMulti.html'%}
+
+                                                </details>
+                                            </div>
+                                                    
+                                    
+                                    <br>    
+
+
+                                                                    
+
+                                <br><p>If your answer is "one polygon" to step 2, please go to step 3. Otherwise, click the angle brackets ">" at the left bottom of the page.</p>
+                                <br><p><strong>Step 3:  Draw one polygon to locate the region that the answer is referring to by clicking on the image. </strong></p>
+                                <br>
+
+                                    
+                                    <div style="text-indent:2em;">
+                                            <p><strong>Option (a): </strong> If the answer <strong>has been </strong>located in one of the previously drawn regions, select that region.</p>
+                                                 
+                                    </div>
+                               
+                                                
+                                    <div style="padding-left:4em;">
+                                                        <details  id = "details6">
+                                                                <summary  id = "summary6"><strong>See details and examples </strong></summary>
+                                                                    {% include 'Steps/Examples/Step4ExampleSelectGroup.html'%}
+                                                            </details>
+                                    </div>
+
+
+
+        
+                                         
+                                    <div style="text-indent:2em;">
+                                        <br>
+                                        <p><strong>Option (b): </strong> If the answer <strong>has not been </strong> located in one of the previously drawn regions, draw ONE polygon to locate the region that the answer is referring to following these instructions:</p>
+                                                    <div style="padding-left: 2em;">
+                                                            <p><strong>&#8226 To draw:</strong> Click the image to draw points one by one around the targeted region to form a polygon. No drag operation is needed.</p>
+                                                            <p><strong>&#8226 To finish:</strong> Click the first point again (the polygon will turn purple when your cursor is on the first point you draw). 
+                                                            Or press keyboard shortcut 'Enter'.</p>
+                                                            <p><strong>&#8226 To undo: </strong>Click the Undo button. Or press keyboard shortcut 'Ctrl+Z'.</p>
+                                                            <p><strong>&#8226 To clear: </strong> Click the 'Clear' button.</p>
+                                                        
+                                                    </div>
+                                    </div>
+                                  
+                                    <div style="padding-left:4em;">
+                                        <details  id = "details7">
+                                                <summary  id = "summary7"><strong>See details and examples </strong></summary>
+        
+                                                      
+                                                    {% include 'Steps/Examples/Step4ExampleNotLocated.html'%}
+                                             
+            
+                                            </details>
+                                        </div>
+
+                                    <div style="padding-left:4em;">
+                                            <details  id = "details8">
+                                                    <summary  id = "summary8"><strong>See details and examples </strong></summary>
+            
+                                                          
+                                                        {% include 'Steps/Examples/Step4Example.html'%}
+                                                 
+                
+                                                </details>
+                                            </div>
+                            <!-- <br><p><strong> Step 4: Click next and repeat Step 1,2,3, and 4 for the next image. </strong></p> -->
+                            <br>
+                            
+                        
+
+
+                            <h4 class="title">NOTE </h4>  
+                            <ul>    
+                            
+                            {% block numimages%}
+                            {% endblock numimages %}
+                            <li><p> Please do not refresh the webpage once you have started working, as you will lose all your work and have to start from the beginning.  </p></li>              
+                            {% block qualificationmessage%}
+                            {% endblock qualificationmessage%}
+                            <li><p>If you have any questions, please contact us at chongyanchen_hci@utexas.edu. If you wish us to notify you when we release new HITs, you can leave your email in the comment box when you submit the HITs. The comment box is optional, feel free to leave it blank.</p></li>
+                                  </ul>
+                       
+
+
+                        <button id="hideDtl" type="button" class="btn btn-default btn-sm center-block">
+                            Hide
+                        </button>
+
+                        <small style="display: block; text-align: center; font-size: 13px; margin-top: 5px; font-style: italic">
+                            You can see this information anytime by clicking "Hide / Show Details" button above.
+                        </small>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+</div>
+
+{% block body %}
+{% endblock %}
+
+</body>
+</html>
